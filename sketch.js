@@ -1,4 +1,4 @@
-function make2Darray{
+function make2Darray(){
   let arr = new Array(cols);
   for(let i =0; i<arr.length; i++){
   arr[i] = new Array(rows);

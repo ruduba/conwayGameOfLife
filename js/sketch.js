@@ -14,18 +14,33 @@ let cols =10;
 let rows = 10;
 let resolution = 4;
 
+let running = false;
+
 function setup(){
   let canvas = createCanvas(400, 400);
   canvas.parent("canvas-container");
   cols = width/resolution;
   rows = height/resolution;
 
-  grid = make2Darray(cols, rows);
-  for(let i=0; i<cols; i++){
+    grid = make2Darray(cols, rows);
+    for(let i=0; i<cols; i++){
+    for(let j=0; j<rows; j++){
+      grid[i][j] = floor(random(2));}}
+
+  document.querySelector(".start").addEventListener("click", () => running = true);
+  document.querySelector(".stop").addEventListener("click", () => running = false);
+  document.querySelector(".reset").addEventListener("click", () => 
+  {
+    grid = make2Darray(cols, rows);
+    for(let i=0; i<cols; i++){
     for(let j=0; j<rows; j++){
       grid[i][j] = floor(random(2));
     }
   }
+   running = false;
+  });
+  
+ 
 }
 
 function draw(){
@@ -42,7 +57,9 @@ function draw(){
       }
     }
   }
-  let next = make2Darray(cols, rows);
+
+  if (running){
+    let next = make2Darray(cols, rows);
 
   for(let i=0; i<cols; i++){
     for(let j=0; j<rows; j++){
@@ -50,9 +67,6 @@ function draw(){
 
         let sum = 0;
         let neighbors = countNeighbors(grid, i, j);
-
-        
-
         if(state == 0 && neighbors == 3){
           next[i][j] = 1;
         }
@@ -64,7 +78,9 @@ function draw(){
       
       }
     }
-  grid = next;
+      grid = next;
+  }
+  
 }
 function countNeighbors(grid, x, y){
   let sum = 0;
@@ -81,3 +97,6 @@ let row = (y + j + rows) % rows;
   sum -= grid[x][y];
   return sum;
 }
+
+
+

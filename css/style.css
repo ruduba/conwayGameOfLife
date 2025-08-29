@@ -1,0 +1,72 @@
+    body {
+      padding: 0;
+      margin: 0;
+      background-color: #1b1b1b;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .game-title{
+      font-family: Arial, Helvetica, sans-serif;
+      font-weight: 300;
+      color: aquamarine;
+    }
+
+    .buttons{
+        margin-top: 15px;
+        text-align: center;
+
+    }
+
+    .buttons button{
+        margin: 0 8px;
+        padding: 6px 12px;
+        font-size: 14px;
+        cursor: pointer;
+    }
+.canvas-container {
+  display: flex;
+  margin: 0 auto;   /* center */
+  
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+@media screen and (min-width: 600px) {
+.canvas-container{
+    width: 50%;
+    flex-direction: column;
+    align-items: center;
+}
+.buttons button{
+    flex-direction: column;
+}
+.canvas-container{
+    width: 100%;
+}
+}
+
+@media screen and (min-width: 768px) {
+    .canvas-container{
+        width: 738px;
+        flex-direction: row;
+        align-items: center;
+    }
+}
+
+@media screen and (min-width: 1200px){
+    .canvas-container{
+        width: 962px;
+        flex-direction: row;
+        align-items: center;
+    }
+}
+
+@media screen and (orientation: portrait){
+    .canvas-container{
+            flex-direction: column;
+            align-items: center;
+    }
+}

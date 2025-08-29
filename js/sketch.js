@@ -15,7 +15,8 @@ let rows = 10;
 let resolution = 4;
 
 function setup(){
-  createCanvas(600, 400);
+  let canvas = createCanvas(400, 400);
+  canvas.parent("canvas-container");
   cols = width/resolution;
   rows = height/resolution;
 
